@@ -1,4 +1,4 @@
-
+import java.util.Arrays;
 public class App {
 	public static void main(String[] args) {
 		Animal a = new Animal("an animal");
@@ -24,6 +24,12 @@ public class App {
 
 		for (int i = 0; i < pets.length; i++) {
 			System.out.println("Pet: " + pets[i]);
+		}
+		
+		Arrays.sort(pets);
+		
+		for (int i = 0; i < pets.length; i++) {
+			System.out.println("(sorted) Pet: " + pets[i]);
 		}
 	}
 }
