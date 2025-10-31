@@ -31,5 +31,15 @@ public class AppCollections {
 		Collections.sort(pets);
 		
 		System.out.println("Sorted pets: " + pets);
+
+		List<Animal> uniquePets = new ArrayList<>();
+
+		for (int i = 0; i < pets.size(); i++) {
+			if (!(uniquePets.contains(pets.get(i)))) {
+				uniquePets.add(pets.get(i));
+			}
+		}
+		
+		System.out.println("Sorted distinct pets: " + uniquePets);
 	}
 }
