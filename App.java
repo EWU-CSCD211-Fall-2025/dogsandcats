@@ -48,5 +48,7 @@ public class App {
 		for (int i = 0; i < pets.length; i++) {
 			System.out.println("(sorted) Pet: " + pets[i]);
 		}
+		
+		System.out.println("sdf");
 	}
 }
