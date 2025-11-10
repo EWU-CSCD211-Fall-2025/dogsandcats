@@ -61,15 +61,26 @@ public class LinkedListAnimal {
     }
 
     public void addAtIndex(int index, Animal data) {
+        System.out.println("Adding " +  data + " at index " + index);
         if (index == 0) {
             addFirst(data);
-        } else if (index == size - 1) {
+        } else if (index == size) {
             addLast(data);
         } else if (index < 0 || index >= size) {
             throw new IndexOutOfBoundsException("index out of bounds");
         } else {
 
             // now we do the hard part
+
+            Node cur = head.next;
+            for (int i = 0; i < index - 1; i++) {
+               cur = cur.next;
+            }
+
+            Node temp = cur.next;
+            cur.next = new Node(data);
+            cur.next.next = temp;
+            size++;
 
         }
     }
@@ -88,7 +99,7 @@ public class LinkedListAnimal {
                 cur = cur.next;
             }
         }
-        s += "]";
+        s += "] size = " + size + ", head -> " + head.data + ", tail -> " + tail.data;
         return s;
     }
 

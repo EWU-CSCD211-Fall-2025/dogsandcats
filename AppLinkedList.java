@@ -10,6 +10,11 @@ public class AppLinkedList {
 
         list.addFirst(new Dog("Brodie"));
 
+        list.addLast(new Dog("Beulah"));
+        System.out.println(list);
+
+        list.addAtIndex(4, new Cat("Cosmo"));
+
         System.out.println(list);
 
     }

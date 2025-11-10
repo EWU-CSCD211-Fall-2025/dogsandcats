@@ -5,7 +5,9 @@
  */
 public class Animal implements Comparable<Animal> {
 	
-	private String name;
+	final private String initialName; // immutable
+    private String name; // mutable
+    private boolean isAwake; // mutable
 	
 	/**
 	 * Constructs an Animal with the given name.
@@ -13,8 +15,22 @@ public class Animal implements Comparable<Animal> {
 	 * @param name the name of the animal
 	 */
 	public Animal(String name) {
-		this.name = name;
+		this.initialName = name;
+        this.name = name;
+        this.isAwake = true;
 	}
+
+    public void mutateName(String name) {
+        this.name = name;
+    }
+
+    public void wakeUp() {
+        this.isAwake = true;
+    }
+
+    public void goToSleep() {
+        this.isAwake = false;
+    }
 
 	/**
 	 * Returns the name of this animal.
@@ -54,17 +70,18 @@ public class Animal implements Comparable<Animal> {
 			return false;
 		} else {
 			Animal otherAnimal = (Animal) o;
-			return otherAnimal.name.equals(this.name);
+			return otherAnimal.initialName.equals(this.initialName);
 		}
 	}
 	
 	/**
 	 * Returns the hash code for this animal based on its name.
-	 * 
+	 * Only use immutable (final) fields!
+     *
 	 * @return the hash code of the animal's name
 	 */
 	@Override
 	public int hashCode() {
-		return name.hashCode();
+		return initialName.hashCode();
 	}
 }
