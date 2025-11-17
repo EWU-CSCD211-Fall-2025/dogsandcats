@@ -86,9 +86,29 @@ public class LinkedListAnimal {
     }
 
     public void removeFirst() {
-        if (size > 0) {
+        if (size > 1) {
             head.next = head.next.next;
             size--;
+        } else if (size == 1) {
+            head.next = null;
+            tail = head;
+            size = 0;
+        }
+    }
+
+    public void removeLast() {
+        if (size == 0) {
+            // do nothing
+        } else {
+
+            Node cur = head;
+            while (cur.next != tail) {
+                cur = cur.next;
+            }
+            cur.next = null;
+            tail = cur;
+            size--;
+
         }
     }
 
@@ -106,7 +126,7 @@ public class LinkedListAnimal {
                 cur = cur.next;
             }
         }
-        s += "] size = " + size + ", head -> " + head.data + ", tail -> " + tail.data;
+        s += "] size = " + size + ", head.data -> " + head.data + ", tail.data -> " + tail.data;
         return s;
     }
 
