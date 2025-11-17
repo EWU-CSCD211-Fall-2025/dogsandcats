@@ -3,7 +3,7 @@
  * Animal class that implements Comparable based on the animal's name.
  * 
  */
-public class Animal implements Comparable<Animal> {
+public abstract class Animal implements Comparable<Animal> {
 	
 	final private String initialName; // immutable
     private String name; // mutable
@@ -31,6 +31,9 @@ public class Animal implements Comparable<Animal> {
     public void goToSleep() {
         this.isAwake = false;
     }
+
+    public abstract String speak();
+
 
 	/**
 	 * Returns the name of this animal.
