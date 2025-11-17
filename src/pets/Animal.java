@@ -1,3 +1,4 @@
+package pets;
 
 /**
  * Animal class that implements Comparable based on the animal's name.

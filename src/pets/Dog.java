@@ -1,4 +1,4 @@
-
+package pets;
 /**
  * Represents a dog, which is a type of animal.
  */

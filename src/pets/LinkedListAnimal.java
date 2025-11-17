@@ -1,4 +1,4 @@
-
+package pets;
 
 public class LinkedListAnimal {
 
@@ -82,6 +82,13 @@ public class LinkedListAnimal {
             cur.next.next = temp;
             size++;
 
+        }
+    }
+
+    public void removeFirst() {
+        if (size > 0) {
+            head.next = head.next.next;
+            size--;
         }
     }
 
