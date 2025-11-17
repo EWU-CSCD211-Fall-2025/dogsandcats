@@ -1,4 +1,14 @@
+"""
+If you are curious, here is an example of a few of the 
+things we have been studying in Python instead of Java.
 
+If you would like more examples of OOP in Python feel free to ask.
+
+Otherwise, note that this is not material that will be in tests, hw, or quizzes.
+
+It's just here if you are curious.
+
+"""
 
 from abc import ABC, abstractmethod
 
