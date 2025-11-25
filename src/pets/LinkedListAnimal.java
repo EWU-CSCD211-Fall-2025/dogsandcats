@@ -130,6 +130,51 @@ public class LinkedListAnimal {
         return s;
     }
 
+    public String middleNodeData() {
+        return middleNode().data.toString();
+    }
+
+    private Node middleNode() {
+
+        Node slow = head.next;
+        Node fast = slow;
+
+        while (fast != null && fast.next != null && fast.next.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+
+        }
+        return slow;
+    }
+
+    public LinkedListAnimal[] splitInTwo() {
+        
+        Node middle = middleNode();
+
+        LinkedListAnimal l1 = new LinkedListAnimal();
+        LinkedListAnimal l2 = new LinkedListAnimal();
+
+        l1.head.next = head.next;
+        l1.tail = middle;
+
+        l2.head.next = middle.next;
+        l2.tail = tail;
+
+        middle.next = null;
+
+        l1.size = size / 2 + size % 2;
+        l2.size = size / 2;
+
+        head.next = null;
+        size = 0;
+        tail = head;
+
+        return new LinkedListAnimal[] {l1, l2};
     
+    }
+
+        
+
+
 }
 

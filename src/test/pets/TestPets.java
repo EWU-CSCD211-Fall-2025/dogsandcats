@@ -73,4 +73,47 @@ class TestPets {
         assertEquals("[d1 ] size = 1, head.data -> null, tail.data -> d1", list2.toString());
     }
 
+   @Test
+   void testFindMiddle() {
+       // Arrange
+
+       LinkedListAnimal list = new LinkedListAnimal();
+       list.addLast(new Cat("A"));
+       list.addLast(new Cat("B"));
+       list.addLast(new Cat("C"));
+       list.addLast(new Cat("D"));
+       //list.addLast(new Cat("E"));
+
+       // Act
+       String middleData = list.middleNodeData();
+
+       // Assert
+       assertEquals("B", middleData);
+
+   }
+
+   @Test
+   void TestSplitListInTwo() {
+       // Arrange
+       LinkedListAnimal list = new LinkedListAnimal();
+       
+
+       list.addLast(new Cat("A"));
+       list.addLast(new Cat("B"));
+       list.addLast(new Cat("C"));
+       list.addLast(new Cat("D"));
+       list.addLast(new Cat("E"));
+
+       // Act
+       LinkedListAnimal[] lists = list.splitInTwo();
+
+       // Assert
+       LinkedListAnimal list1 = lists[0];
+       LinkedListAnimal list2 = lists[1];
+
+       assertEquals("[A B C ] size = 3, head.data -> null, tail.data -> C", list1.toString());
+       
+       assertEquals("[D E ] size = 2, head.data -> null, tail.data -> E", list2.toString());
+   }
+
 }
