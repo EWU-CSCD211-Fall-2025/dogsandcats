@@ -116,4 +116,46 @@ class TestPets {
        assertEquals("[D E ] size = 2, head.data -> null, tail.data -> E", list2.toString());
    }
 
+
+   @Test
+   void testMergeSort() {
+        // Arrange
+       LinkedListAnimal list = new LinkedListAnimal();
+       list.addLast(new Cat("8"));
+       list.addLast(new Cat("3"));
+       list.addLast(new Cat("1"));
+       list.addLast(new Dog("2"));
+
+
+        // Act
+        list.sort();
+       
+
+        // Assert
+
+        assertEquals("[1 2 3 8 ] size = 4, head.data -> null, tail.data -> 8", list.toString());
+   }
+
+  @Test
+  void testListSize0() {
+      // Arrange
+      LinkedListAnimal listsize0 = new LinkedListAnimal();
+      
+      // Act
+      listsize0.sort();
+
+      // Assert
+      assertEquals("[] size = 0, head.data -> null, tail.data -> null", listsize0.toString());
+}
+    @Test
+    void testSize1() {
+        // Arrange
+        LinkedListAnimal listSize1 = new LinkedListAnimal();
+        listSize1.addLast(new Dog("Brodie"));
+
+        // Act
+        listSize1.sort();
+
+        // Assertd
+        assertEquals("[Brodie ] size = 1, head.data -> null, tail.data -> Brodie", listSize1.toString());
 }

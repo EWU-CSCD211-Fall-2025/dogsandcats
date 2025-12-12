@@ -131,12 +131,12 @@ public class LinkedListAnimal {
     }
 
     public String middleNodeData() {
-        return middleNode().data.toString();
+        return middleNode(head.next).data.toString();
     }
 
-    private Node middleNode() {
+    private Node middleNode(Node node) {
 
-        Node slow = head.next;
+        Node slow = node;
         Node fast = slow;
 
         while (fast != null && fast.next != null && fast.next.next != null) {
@@ -149,7 +149,7 @@ public class LinkedListAnimal {
 
     public LinkedListAnimal[] splitInTwo() {
         
-        Node middle = middleNode();
+        Node middle = middleNode(head.next);
 
         LinkedListAnimal l1 = new LinkedListAnimal();
         LinkedListAnimal l2 = new LinkedListAnimal();
@@ -173,7 +173,54 @@ public class LinkedListAnimal {
     
     }
 
+
+    public void sort() {
+
+        head.next = mergeSort(head.next);
+
+        Node cur = head;
+        while (cur != null) {
+            tail = cur;
+            cur = cur.next;
+        }
+
+    }
+
         
+    private Node mergeSort(Node node) {
+        if (node == null || node.next == null) return node;
+
+        Node middle = middleNode(node);
+        Node rightStart = middle.next;
+        middle.next = null;
+
+        Node left = mergeSort(node);
+        Node right = mergeSort(rightStart);
+
+        return merge(left, right);
+    }
+
+
+    private Node merge(Node a, Node b) {
+        Node dummy = new Node(null);
+        Node tailMerge = dummy; // local merge tail
+
+        while (a != null && b != null) {
+            if (a.data.compareTo(b.data) <= 0) {
+                tailMerge.next = a;
+                a = a.next;
+            } else {
+                tailMerge.next = b;
+                b = b.next;
+            }
+            tailMerge = tailMerge.next;
+        }
+
+        if (a != null) tailMerge.next = a;
+        else tailMerge.next = b;
+
+        return dummy.next;
+    }
 
 
 }
